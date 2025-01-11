@@ -83,21 +83,17 @@ begin
     'const captureButton = document.getElementById("' + FCaptureButtonID + '");' +
     'const photoContext = photoCanvas.getContext("2d");' +
 
-    'let currentStream = null;' +
-    'let facingMode = "' + FacingModeToString(FVideoFacingMode) + '";' +
-
     'async function initializeCamera() {' +
     '  try {' +
     '    const stream = await navigator.mediaDevices.getUserMedia({' +
     '      video: {' +
-    '        facingMode: facingMode,' +
+    '        facingMode: ' + FacingModeToString(FVideoFacingMode) + ',' +
     '        width: { ideal: ' + FVideoWidth.ToString + ' },' +
     '        height: { ideal: ' + FVideoHeight.ToString + ' },' +
     '        frameRate: { ideal: ' + FFrameRate.ToString + ', max: 60 }' +
     '      },' +
     '      audio: false' +
     '    });' +
-    '    currentStream = stream;' +
     '    webcamElement.srcObject = stream;' +
     '  } catch (error) {' +
     '    handleCameraError(error);' +
@@ -105,40 +101,26 @@ begin
     '}' +
 
     'function handleCameraError(error) {' +
-    '  console.error("Erro ao acessar a câmera:", error);' +
-    '  let errorMessage = "Erro ao acessar a câmera. ";' +
+    '  console.error("Erro ao acessar a cÃ¢mera:", error);' +
+    '  let errorMessage = "Erro ao acessar a cÃ¢mera. ";' +
     '  if (error.name === "NotAllowedError") {' +
-    '    errorMessage += "Verifique as permissões no navegador.";' +
+    '    errorMessage += "Verifique as permissÃµes no navegador.";' +
     '  } else if (error.name === "NotFoundError") {' +
-    '    errorMessage += "Nenhuma câmera foi encontrada no dispositivo.";' +
+    '    errorMessage += "Nenhuma cÃ¢mera foi encontrada no dispositivo.";' +
     '  } else if (error.name === "NotReadableError") {' +
-    '    errorMessage += "A câmera está em uso por outro aplicativo.";' +
+    '    errorMessage += "A cÃ¢mera estÃ¡ em uso por outro aplicativo.";' +
     '  } else {' +
-    '    errorMessage += "Erro desconhecido. Verifique as configurações.";' +
+    '    errorMessage += "Erro desconhecido. Verifique as configuraÃ§Ãµes.";' +
     '  }' +
     '    ' + FOnError +
-    '}' +
-
-    'function toggleCamera() {' +
-    '  facingMode = (facingMode === "user") ? "environment" : "user";' +
-    '  if (currentStream) {' +
-    '    const tracks = currentStream.getTracks();' +
-    '    tracks.forEach(track => track.stop());' +
-    '  }' +
-    '  initializeCamera();' +
     '}' +
 
     'async function checkDevices() {' +
     '  const devices = await navigator.mediaDevices.enumerateDevices();' +
     '  const videoDevices = devices.filter(device => device.kind === "videoinput");' +
     '  const audioDevices = devices.filter(device => device.kind === "audioinput");' +
-    '  console.log("Câmeras disponíveis:", videoDevices);' +
-    '  console.log("Microfones disponíveis:", audioDevices);' +
-    '}' +
-
-    'function applyFilter() {' +
-    '  photoContext.filter = "grayscale(100%)";' +
-    '  photoContext.drawImage(webcamElement, 0, 0, photoCanvas.width, photoCanvas.height);' +
+    '  console.log("CÃ¢meras disponÃ­veis:", videoDevices);' +
+    '  console.log("Microfones disponÃ­veis:", audioDevices);' +
     '}' +
 
     'function capturePhoto() {' +
@@ -201,4 +183,3 @@ begin
 end;
 
 end.
-
