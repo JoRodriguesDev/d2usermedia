@@ -11,7 +11,7 @@ boss install https://github.com/JoRodriguesDev/d2webmedia
 Para utilizar o d2webmedia você deve adicionar as uses:
 ```pascal
   uModel.UserMedia.Interfaces,
-  uModel.UserMedia.Factory;
+  uModel.UserMedia;
 ```
 
 ## Como usar
