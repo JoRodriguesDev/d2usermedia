@@ -16,7 +16,7 @@ Para utilizar o d2webmedia você deve adicionar as uses:
 
 ## Como usar
 ```pascal
-  var LJavaScipt := TModelGetUserMedia.New
+  var LJavaScript := TModelGetUserMedia.New
                         .WebcamElementID('webcam')           // ID do elemento de vídeo
                         .PhotoCanvasID('photoCanvas')        // ID do elemento canvas
                         .CaptureButtonID('captureButton')    // ID do botão de captura
