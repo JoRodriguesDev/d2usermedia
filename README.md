@@ -16,13 +16,13 @@ Para utilizar o d2webmedia você deve adicionar as uses:
 
 ## Como usar
 ```pascal
-  var HTML := TModelGetUserMedia.New
-                .WebcamElementID('webcam')           // ID do elemento de vídeo
-                .PhotoCanvasID('photoCanvas')        // ID do elemento canvas
-                .CaptureButtonID('captureButton')    // ID do botão de captura
-                .VideoResolution(1280, 720)          // Resolução da câmera
-                .FrameRate(30)                       // Taxa de quadros
-                .VideoFacingMode(fmUser)             // Direção da câmera
-                .OnSuccess(D2Bridge.PrismSession.CallBacks.CallBackJS('OnCaptureSuccess', D2Bridge.FormUUID, 'base64Image'))   // Função de sucesso
-                .OnError(D2Bridge.PrismSession.CallBacks.CallBackJS('OnCaptureError', D2Bridge.FormUUID, 'error'));            // Função de erro
+  var LJavaScipt := TModelGetUserMedia.New
+                        .WebcamElementID('webcam')           // ID do elemento de vídeo
+                        .PhotoCanvasID('photoCanvas')        // ID do elemento canvas
+                        .CaptureButtonID('captureButton')    // ID do botão de captura
+                        .VideoResolution(1280, 720)          // Resolução da câmera
+                        .FrameRate(30)                       // Taxa de quadros
+                        .VideoFacingMode(fmUser)             // Direção da câmera
+                        .OnSuccess(D2Bridge.PrismSession.CallBacks.CallBackJS('OnCaptureSuccess', D2Bridge.FormUUID, 'base64Image'))   // Função de sucesso
+                        .OnError(D2Bridge.PrismSession.CallBacks.CallBackJS('OnCaptureError', D2Bridge.FormUUID, 'error'));            // Função de erro
 ```
