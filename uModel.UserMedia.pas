@@ -82,12 +82,13 @@ begin
     'const photoCanvas = document.getElementById("'   + FPhotoCanvasID + '");' +
     'const captureButton = document.getElementById("' + FCaptureButtonID + '");' +
     'const photoContext = photoCanvas.getContext("2d");' +
+    'let facingMode = "' + FacingModeToString(FVideoFacingMode) + '";' +
 
     'async function initializeCamera() {' +
     '  try {' +
     '    const stream = await navigator.mediaDevices.getUserMedia({' +
     '      video: {' +
-    '        facingMode: ' + FacingModeToString(FVideoFacingMode) + ',' +
+    '        facingMode: facingMode,' +
     '        width: { ideal: ' + FVideoWidth.ToString + ' },' +
     '        height: { ideal: ' + FVideoHeight.ToString + ' },' +
     '        frameRate: { ideal: ' + FFrameRate.ToString + ', max: 60 }' +
