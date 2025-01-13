@@ -24,5 +24,6 @@ Para utilizar o d2webmedia você deve adicionar as uses:
                         .FrameRate(30)                       // Taxa de quadros
                         .VideoFacingMode(fmUser)             // Direção da câmera
                         .OnSuccess(D2Bridge.PrismSession.CallBacks.CallBackJS('OnCaptureSuccess', D2Bridge.FormUUID, 'base64Image'))   // Função de sucesso
-                        .OnError(D2Bridge.PrismSession.CallBacks.CallBackJS('OnCaptureError', D2Bridge.FormUUID, 'errorMessage'));            // Função de erro
+                        .OnError(D2Bridge.PrismSession.CallBacks.CallBackJS('OnCaptureError', D2Bridge.FormUUID, 'errorMessage'))      // Função de erro
+                        .Generate;
 ```
